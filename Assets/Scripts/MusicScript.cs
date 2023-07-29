@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public class MusicScript : MonoBehaviour 
 {
-    [Header("Музыка и Звуки")]
+    [Header("Music and Sound")]
     public AudioSource musicAudioSources;
     public AudioSource soundAudioSources;
     private int IntMusic;
 
-    [Header("Музыкальная Панель")]
+    [Header("Music Panel")]
     public Animation MusicAnimation;
     public Button MusicButton;
 
@@ -18,7 +18,7 @@ public class MusicScript : MonoBehaviour
     {
         IntMusic += 1;
 
-        // Выключить музыку
+        // Off Music
         if (IntMusic == 1)
         {
             musicAudioSources.Stop();
@@ -27,7 +27,7 @@ public class MusicScript : MonoBehaviour
             StartCoroutine (WaitSystem());
         }
 
-        // Включить музыку
+        // On Music
         if (IntMusic == 2)
         {
             musicAudioSources.Play();

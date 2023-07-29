@@ -5,20 +5,20 @@ using UnityEngine.UI;
 
 public class MainScript : MonoBehaviour
 {
-[Header("Полученный текст")]
+[Header("Yes/No Text")]
 public Text YesNo_Text;
 
-[Header("Поинты")]
+[Header("Points")]
 public int yes;
 public Text yes_text;
 public int no;
 public Text no_text;
 
-[Header("Количество попыток")]
+[Header("Number of attempts")]
 public int attempts;
 public Text attempts_text;
 
-[Header("Инструкция")]
+[Header("Instruction")]
 public GameObject TopInstruction;
 public Text TopInstruction_Text;
 public GameObject BottomInstruction;
@@ -28,36 +28,35 @@ public Text LoserText;
 private int Instruction_int;
 private int RandomNumber;
 
-[Header("Эффекты")]
+[Header("Effects")]
 public ParticleSystem ParticleEffect;
 public Animation AnimationButton;
 public Animation AnimationText;
 
-[Header("Рекламнный бонус")]
+[Header("Advertising bonus")]
 public int BonusIncerauseLuck;
 
-[Header("Гугл Консоль")]
+[Header("Google Console")]
 public GoogleConsole Console;
 
 private void Start ()
 {
       Instruction_int = PlayerPrefs.GetInt("Instruction_int");
 
-      // отключить инструкцию (если ее уже прошли)
+      // disable the instruction (if it has already been passed)
       if (Instruction_int > 10)
       {
             TopInstruction.SetActive(false);
             BottomInstruction.SetActive(false);
       }
 
-      // обнулить игру, если инструкция не пройдена
+      // reset the game if the instruction fails
       if (Instruction_int < 10)
       {
             PlayerPrefs.DeleteAll();
       }
 
-
-      // обнулить бонус
+      // reset advertising bonus
       BonusIncerauseLuck = 0;
       PlayerPrefs.SetInt ("BonusIncerauseLuck", BonusIncerauseLuck);
 }
@@ -67,40 +66,17 @@ public void OnClickButton ()
       if(Input.touchCount < 20) 
       {
 
-      // Для введения данных в консоль
+      // entering data into the google console
       Console.ConsoleSystem();
 
-      // Для анимации кнопки
+      // button animation
       AnimationButton.Play();
 
       if (Instruction_int > 10)
       {
       RandomNumber = Random.Range(1, 100);
 
-            //если человек ПОБЕДИЛ (БЕЗ БОНУСА)
-            if (BonusIncerauseLuck == 0){
-            if (RandomNumber == 1){
-
-                  YesNo_Text.text = "Yes";
-                  yes += 1;
-                  attempts = 0;
-
-                  ParticleEffect.Play();
-                  AnimationText.Play();
-            }
-            }
-
-            //если человек ПРОИГРАЛ (БЕЗ БОНУСА)
-            if (BonusIncerauseLuck == 0){
-            if (RandomNumber >= 2){
-
-                  YesNo_Text.text = "No";
-                  no += 1;
-                  attempts += 1;
-            }
-            }
-
-            //если человек ПОБЕДИЛ (БОНУС)
+            //if the player WIN (Included bonus)
             if (BonusIncerauseLuck == 1){
             if (RandomNumber <= 3){
 
@@ -113,9 +89,32 @@ public void OnClickButton ()
             }
             }
 
-            //если человек ПРОИГРАЛ (БОНУС)
+            //if the player WIN (Disabled bonus)
+            if (BonusIncerauseLuck == 0){
+            if (RandomNumber == 1){
+
+                  YesNo_Text.text = "Yes";
+                  yes += 1;
+                  attempts = 0;
+
+                  ParticleEffect.Play();
+                  AnimationText.Play();
+            }
+            }
+
+            //if the player LOST (Included bonus)
             if (BonusIncerauseLuck == 1){
             if (RandomNumber >= 4){
+
+                  YesNo_Text.text = "No";
+                  no += 1;
+                  attempts += 1;
+            }
+            }
+
+            //if the player LOST (Disabled bonus)
+            if (BonusIncerauseLuck == 0){
+            if (RandomNumber >= 2){
 
                   YesNo_Text.text = "No";
                   no += 1;

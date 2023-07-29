@@ -8,16 +8,16 @@ public class UnityLevelPlay : MonoBehaviour
     private bool AdsBoolPoint;
     private bool AdsBoolIncerauseLuck;
 
-    [Header("Добавление Поинта - (Видео Реклама)")]
+    [Header("Add Point - (Reward Video)")]
     public Animation AnimationText;
     public int yes;
 
-    [Header("Увеличение Удачи - (Видео Реклама)")]
+    [Header("Increasing Luck - (Reward Video)")]
     public Animator BonusAnimator;
     public Text BonusText;
     public int BonusIncerauseLuck;
 
-    [Header("Рекламнные Кнопки")]
+    [Header("Ads buttons")]
     public Button Button_IncerauseLuck;
     public Button Button_AddOnePoint;
 
@@ -125,7 +125,7 @@ public class UnityLevelPlay : MonoBehaviour
     {   
         if (AdsBoolPoint == true)
         {
-            // Добавить Поинт
+            // Add point
             yes += 1;
             AnimationText.Play();
             PlayerPrefs.SetInt ("yes", yes);
@@ -135,7 +135,7 @@ public class UnityLevelPlay : MonoBehaviour
 
         if (AdsBoolIncerauseLuck == true)
         {
-            // Добавить увеличение удачи
+            // Incerause Luck
             BonusIncerauseLuck = 1;
             PlayerPrefs.SetInt ("BonusIncerauseLuck", BonusIncerauseLuck);
 

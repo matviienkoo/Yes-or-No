@@ -20,8 +20,8 @@ public class GoogleConsole : MonoBehaviour
 	{
 		PlayGamesPlatform.DebugLogEnabled = true;
 		Social.localUser.Authenticate((bool success) => {
-		if (success) print("Вошел мальчик");
-		else print ("Бля невошел");
+		if (success) print("Logged into the console");
+		else print ("Not logged into console");
 		});
 	}
 
@@ -40,51 +40,42 @@ public class GoogleConsole : MonoBehaviour
 		yes = PlayerPrefs.GetInt("yes");
 		no = PlayerPrefs.GetInt("no");
 
-		//	-- АЧИВКИ
+		//	-- Achievements
 		if (no >= 1) {
 		Social.ReportProgress("CgkI2b6etZ0eEAIQAg", 100.0f, (bool success) => {
-		// Удачно или нет?
 		});
 		}
 		if (yes >= 1) {
 		Social.ReportProgress("CgkI2b6etZ0eEAIQAQ", 100.0f, (bool success) => {
-		// Удачно или нет?
 		});
 		}
 		if (no >= 100) {
 		Social.ReportProgress("CgkI2b6etZ0eEAIQAw", 100.0f, (bool success) => {  
-		// Удачно или нет?
 		});
 		}
 		if (yes >= 25) {
 		Social.ReportProgress("CgkI2b6etZ0eEAIQBw", 100.0f, (bool success) => {	        
-		// Удачно или нет?
 		});
 		}
 		if (no >= 1000) {
 		Social.ReportProgress("CgkI2b6etZ0eEAIQBA", 100.0f, (bool success) => {     
-		// Удачно или нет?
 		});
 		}
 		if (yes >= 100) {
 		Social.ReportProgress("CgkI2b6etZ0eEAIQCA", 100.0f, (bool success) => {
-		// Удачно или нет?
 		});
 		}
 		if (no >= 10000) {
 		Social.ReportProgress("CgkI2b6etZ0eEAIQBg", 100.0f, (bool success) => {
-		// Удачно или нет?
 		});
 		}
 		if (yes >= 1000) {
 		Social.ReportProgress("CgkI2b6etZ0eEAIQCQ", 100.0f, (bool success) => {   
-		// Удачно или нет?
 		});
 		}
 
-		// -- ТАБЛИЦА ЛИДЕРОВ
+		// -- LeaderBoard
 		Social.ReportScore(yes, "CgkI2b6etZ0eEAIQCg", (bool success) => {
-        // Удачно или нет?
     	});
 	}
 }
