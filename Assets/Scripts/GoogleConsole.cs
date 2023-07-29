@@ -12,9 +12,9 @@ public class GoogleConsole : MonoBehaviour
 	private int no; 
 	
 	private void Awake()
-    {
-        PlayGamesPlatform.Activate();
-    }
+	{
+		PlayGamesPlatform.Activate();
+	}
 
 	private void Start () 
 	{

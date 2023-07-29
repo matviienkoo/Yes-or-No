@@ -76,7 +76,7 @@ public void OnClickButton ()
       {
       RandomNumber = Random.Range(1, 100);
 
-            //if the player WIN (Included bonus)
+            //if the player WIN/LOST (Included bonus)
             if (BonusIncerauseLuck == 1){
             if (RandomNumber <= 3){
 
@@ -87,9 +87,16 @@ public void OnClickButton ()
                   ParticleEffect.Play();
                   AnimationText.Play();
             }
+
+            if (RandomNumber >= 4){
+
+                  YesNo_Text.text = "No";
+                  no += 1;
+                  attempts += 1;
+            }
             }
 
-            //if the player WIN (Disabled bonus)
+            //if the player WIN/LOST (Disabled bonus)
             if (BonusIncerauseLuck == 0){
             if (RandomNumber == 1){
 
@@ -100,20 +107,7 @@ public void OnClickButton ()
                   ParticleEffect.Play();
                   AnimationText.Play();
             }
-            }
 
-            //if the player LOST (Included bonus)
-            if (BonusIncerauseLuck == 1){
-            if (RandomNumber >= 4){
-
-                  YesNo_Text.text = "No";
-                  no += 1;
-                  attempts += 1;
-            }
-            }
-
-            //if the player LOST (Disabled bonus)
-            if (BonusIncerauseLuck == 0){
             if (RandomNumber >= 2){
 
                   YesNo_Text.text = "No";
@@ -130,7 +124,6 @@ public void OnClickButton ()
       else
 
       InstuctionGame();
-
       }
 }
 
