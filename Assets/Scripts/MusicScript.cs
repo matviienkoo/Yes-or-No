@@ -39,14 +39,14 @@ public class MusicScript : MonoBehaviour
         }
     }
 
+    public void SoundSystem()
+    {
+        soundAudioSources.Play();
+    }
+
     IEnumerator WaitSystem () 
     {
         yield return new WaitForSeconds (0.5f);
         MusicButton.interactable = true;
-    }
-
-    public void SoundSystem()
-    {
-        soundAudioSources.Play();
     }
 }

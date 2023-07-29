@@ -9,7 +9,7 @@ using UnityEngine.SocialPlatforms;
 public class GoogleConsole : MonoBehaviour 
 {
 	private int yes;
-	private int no;
+	private int no; 
 	
 	private void Awake()
     {

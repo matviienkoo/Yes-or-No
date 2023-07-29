@@ -88,9 +88,7 @@ public class UnityLevelPlay : MonoBehaviour
             AdsBoolIncerauseLuck = true;
             IronSource.Agent.showRewardedVideo();
         }
-
         else
-
         Debug.Log("Reward Video Not Work");
     }
 
@@ -101,15 +99,13 @@ public class UnityLevelPlay : MonoBehaviour
             AdsBoolPoint = true;
             IronSource.Agent.showRewardedVideo();
         }
-
         else
-
         Debug.Log("Reward Video Not Work");
     }
 
     void RewardedVideoOnAdAvailable(IronSourceAdInfo adInfo){
     }
-    void RewardedVideoOnAdUnavailable() {
+    void RewardedVideoOnAdUnavailable(){
     }
     void RewardedVideoOnAdOpenedEvent(IronSourceAdInfo adInfo){
     }
