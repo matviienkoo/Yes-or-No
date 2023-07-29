@@ -120,7 +120,6 @@ public class UnityLevelPlay : MonoBehaviour
     void RewardedVideoOnAdClickedEvent(IronSourcePlacement placement, IronSourceAdInfo adInfo){
     }
 
-    // Награда за рекламу
     void RewardedVideoOnAdRewardedEvent(IronSourcePlacement placement, IronSourceAdInfo adInfo)
     {   
         if (AdsBoolPoint == true)
